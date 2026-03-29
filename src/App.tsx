@@ -296,7 +296,7 @@ export default function App() {
   }
 
   return (
-    <div className="flex min-h-dvh flex-col bg-zinc-950 text-zinc-100">
+    <div className="flex h-full min-h-0 flex-col overflow-hidden bg-zinc-950 text-zinc-100">
       <header className="shrink-0 border-b border-zinc-800 bg-zinc-950 pl-[max(1rem,env(safe-area-inset-left))] pr-[max(1rem,env(safe-area-inset-right))] pt-[max(0.5rem,env(safe-area-inset-top))] pb-3">
         <h1 className="text-left text-xs font-medium uppercase tracking-widest text-emerald-400/90">
           AI 计数小工具
@@ -312,7 +312,10 @@ export default function App() {
         onDelete={handleDeleteFolder}
       />
 
-      <div className="flex min-w-0 flex-1 flex-col pb-[max(1.5rem,env(safe-area-inset-bottom))] pl-[max(1rem,env(safe-area-inset-left))] pr-[max(1rem,env(safe-area-inset-right))] pt-6">
+      <div
+        className="flex min-h-0 min-w-0 flex-1 flex-col overflow-y-auto overflow-x-hidden overscroll-y-contain pb-[max(1.5rem,env(safe-area-inset-bottom))] pl-[max(1rem,env(safe-area-inset-left))] pr-[max(1rem,env(safe-area-inset-right))] pt-6"
+        style={{ WebkitOverflowScrolling: 'touch' }}
+      >
         <div className="mx-auto w-full max-w-full">
           {activeFolder && (
             <header className="mb-6 text-left">

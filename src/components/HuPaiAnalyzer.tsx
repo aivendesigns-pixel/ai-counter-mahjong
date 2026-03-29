@@ -1,5 +1,6 @@
 import { useCallback, useRef, useState } from 'react'
 import { analyzeHuPaiImage, fileToCompressedDataUrl } from '../lib/analyzeHuPai'
+import { stripMarkdownDisplay } from '../lib/stripMarkdownDisplay'
 import { loadAiSettings, saveAiSettings, type AiSettings } from '../lib/aiSettings'
 import { AiSettingsModal } from './AiSettingsModal'
 
@@ -140,11 +141,15 @@ export function HuPaiAnalyzer({ showToast }: Props) {
       )}
 
       {result && (
-        <div className="mt-4 rounded-xl border border-zinc-700/80 bg-zinc-950/80 p-3">
-          <p className="mb-2 text-xs font-medium text-zinc-500">分析结果</p>
-          <pre className="whitespace-pre-wrap break-words text-left text-[13px] leading-relaxed text-zinc-200">
-            {result}
-          </pre>
+        <div className="mt-4 rounded-xl border border-zinc-700/80 bg-zinc-950/80">
+          <p className="border-b border-zinc-800/60 px-3 py-2 text-xs font-medium text-zinc-500">
+            分析结果
+          </p>
+          <div className="px-3 pt-2 pb-[max(1rem,env(safe-area-inset-bottom))]">
+            <div className="whitespace-pre-wrap break-words text-left text-[13px] leading-relaxed text-zinc-200">
+              {stripMarkdownDisplay(result)}
+            </div>
+          </div>
         </div>
       )}
 
