@@ -2,7 +2,17 @@ import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
 
+/** GitHub Pages 子路径：CI 中设置 BASE_PATH=/仓库名/（须带首尾斜杠语义：内部统一成以 / 结尾） */
+const raw = process.env.BASE_PATH?.trim()
+const normalizedBase =
+  !raw || raw === '/'
+    ? '/'
+    : raw.endsWith('/')
+      ? raw
+      : `${raw}/`
+
 export default defineConfig({
+  base: normalizedBase,
   plugins: [react(), tailwindcss()],
   server: {
     proxy: {
