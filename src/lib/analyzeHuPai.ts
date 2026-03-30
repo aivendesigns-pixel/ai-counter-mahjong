@@ -113,7 +113,7 @@ async function analyzeGemini(
     ],
     generationConfig: {
       temperature: 0.3,
-      maxOutputTokens: 4096,
+      maxOutputTokens: 8192,
     },
   }
 
@@ -128,15 +128,21 @@ async function analyzeGemini(
 
   const data = JSON.parse(text) as {
     candidates?: Array<{
+      finishReason?: string
       content?: { parts?: Array<{ text?: string }> }
     }>
     error?: { message?: string }
   }
   if (data.error?.message) throw new Error(data.error.message)
 
-  const parts = data.candidates?.[0]?.content?.parts?.filter(Boolean) ?? []
-  const out = parts.map((p) => p.text ?? '').join('')
+  const cand = data.candidates?.[0]
+  const parts = cand?.content?.parts?.filter(Boolean) ?? []
+  let out = parts.map((p) => p.text ?? '').join('')
   if (!out.trim()) throw new Error('模型未返回内容')
+  if (cand?.finishReason === 'MAX_TOKENS') {
+    out +=
+      '\n\n（以上内容因输出长度上限被截断。可再点一次「AI 分析」重试。）'
+  }
   return out
 }
 

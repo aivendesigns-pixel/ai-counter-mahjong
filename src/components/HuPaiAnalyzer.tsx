@@ -145,8 +145,11 @@ export function HuPaiAnalyzer({ showToast }: Props) {
           <p className="border-b border-zinc-800/60 px-3 py-2 text-xs font-medium text-zinc-500">
             分析结果
           </p>
-          <div className="px-3 pt-2 pb-[max(1rem,env(safe-area-inset-bottom))]">
-            <div className="whitespace-pre-wrap break-words text-left text-[13px] leading-relaxed text-zinc-200">
+          <div
+            className="max-h-[min(75dvh,36rem)] min-h-0 touch-pan-y overflow-y-auto overflow-x-hidden overscroll-contain px-3 pt-2 pb-[max(1rem,env(safe-area-inset-bottom))]"
+            style={{ WebkitOverflowScrolling: 'touch' }}
+          >
+            <div className="whitespace-pre-wrap break-words [overflow-wrap:anywhere] text-left text-[13px] leading-relaxed text-zinc-200">
               {stripMarkdownDisplay(result)}
             </div>
           </div>

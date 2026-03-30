@@ -296,10 +296,10 @@ export default function App() {
   }
 
   return (
-    <div className="flex h-full min-h-0 flex-col overflow-hidden bg-zinc-950 text-zinc-100">
+    <div className="flex min-h-dvh flex-col bg-zinc-950 text-zinc-100">
       <header className="shrink-0 border-b border-zinc-800 bg-zinc-950 pl-[max(1rem,env(safe-area-inset-left))] pr-[max(1rem,env(safe-area-inset-right))] pt-[max(0.5rem,env(safe-area-inset-top))] pb-3">
         <h1 className="text-left text-xs font-medium uppercase tracking-widest text-emerald-400/90">
-          AI 计数小工具
+          AI 计数小工具 <span className="text-zinc-500">v1.0.0</span>
         </h1>
       </header>
 
@@ -312,10 +312,7 @@ export default function App() {
         onDelete={handleDeleteFolder}
       />
 
-      <div
-        className="flex min-h-0 min-w-0 flex-1 flex-col overflow-y-auto overflow-x-hidden overscroll-y-contain pb-[max(1.5rem,env(safe-area-inset-bottom))] pl-[max(1rem,env(safe-area-inset-left))] pr-[max(1rem,env(safe-area-inset-right))] pt-6"
-        style={{ WebkitOverflowScrolling: 'touch' }}
-      >
+      <div className="flex min-w-0 flex-1 flex-col pb-[max(1.5rem,env(safe-area-inset-bottom))] pl-[max(1rem,env(safe-area-inset-left))] pr-[max(1rem,env(safe-area-inset-right))] pt-6">
         <div className="mx-auto w-full max-w-full">
           {activeFolder && (
             <header className="mb-6 text-left">
@@ -343,7 +340,6 @@ export default function App() {
             />
           </section>
 
-          <HuPaiAnalyzer showToast={showToast} />
 
           {(!hasPlayers || showBatchInput) && (
             <form onSubmit={onSubmit} className="space-y-3">

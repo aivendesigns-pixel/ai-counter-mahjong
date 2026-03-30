@@ -1,19 +1,18 @@
 @import 'tailwindcss';
 
 html {
-  height: 100%;
   -webkit-text-size-adjust: 100%;
 }
 
 body {
   margin: 0;
-  height: 100%;
+  min-height: 100dvh;
+  min-height: 100svh;
   -webkit-font-smoothing: antialiased;
-  /* 主滚动在 App 内层，避免 flex 裁切长文却无法滚动 */
-  overflow: hidden;
+  /* 横向误滑出空白 */
+  overflow-x: hidden;
 }
 
 #root {
-  height: 100%;
   min-height: 100dvh;
 }
