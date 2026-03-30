@@ -1,14 +1,14 @@
 {
-  "name": "ai-",
+  "name": "ai-counter",
   "private": true,
-  "version": "1.0.0",
+  "version": "1.1.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "pages:build": "BASE_PATH=/ai-counter-mahjong/ npm run build && rm -rf docs && mkdir -p docs && cp -R dist/. docs/ && : > docs/.nojekyll"
+    "pages:build": "BASE_PATH=/ai-counter/ npm run build && rm -rf docs && mkdir -p docs && cp -R dist/. docs/ && : > docs/.nojekyll"
   },
   "dependencies": {
     "react": "^19.2.4",
