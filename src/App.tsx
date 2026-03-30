@@ -1,7 +1,6 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { FolderModal } from './components/FolderModal'
 import { FolderSidebar } from './components/FolderSidebar'
-import { HuPaiAnalyzer } from './components/HuPaiAnalyzer'
 import { PlayerScoreModal } from './components/PlayerScoreModal'
 import { ScoreSpreadsheet } from './components/ScoreSpreadsheet'
 import { parseScoreForPlayer, parseScoreInput } from './lib/parseScoreInput'
