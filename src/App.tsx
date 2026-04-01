@@ -429,7 +429,7 @@ export default function App() {
     <div className="flex min-h-dvh flex-col bg-zinc-950 text-zinc-100">
       <header className="shrink-0 bg-zinc-950 pl-[max(1rem,env(safe-area-inset-left))] pr-[max(1rem,env(safe-area-inset-right))] pt-[max(0.5rem,env(safe-area-inset-top))] pb-1">
         <h1 className="text-left text-[10px] font-medium uppercase tracking-widest text-zinc-600">
-          AI Counter <span className="text-zinc-700">v1.1.0</span>
+          AI Counter <span className="text-zinc-700">v1.2.0</span>
         </h1>
       </header>
 
