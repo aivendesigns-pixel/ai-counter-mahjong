@@ -17,6 +17,8 @@ export type Folder = {
   id: string
   name: string
   board: BoardState
+  /** 零和模式：每笔记录所有人加减之和必须为 0 */
+  zeroSum?: boolean
 }
 
 export type AppStored = {
